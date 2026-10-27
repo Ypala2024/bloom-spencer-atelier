@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atelier — Bloom &amp; Spencer</title>
+<meta name="robots" content="noindex, nofollow">
+<script>
+  // Hide the app until the passcode is entered (unlocked state lasts for this browser tab session).
+  try { if (sessionStorage.getItem("bs-unlocked") === "1") document.documentElement.classList.add("unlocked"); } catch (e) {}
+</script>
 <meta name="description" content="Design your bespoke Bloom & Spencer piece, discover your stone, and book a private consultation.">
 <link rel="icon" href="https://www.bloomandspencer.com/files1/images/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +17,21 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <form class="gate-box" id="gateForm" novalidate>
+    <img src="https://www.bloomandspencer.com/files1/images/logo.svg" alt="Bloom &amp; Spencer" class="gate-logo" onerror="this.remove()">
+    <p class="eyebrow">Private preview</p>
+    <h1 id="gateTitle" class="gate-title">The Atelier</h1>
+    <p class="muted">This preview is by invitation. Please enter your passcode.</p>
+    <div class="field">
+      <label for="gateCode">Passcode</label>
+      <input id="gateCode" type="password" autocomplete="off" required>
+    </div>
+    <p class="notice" id="gateMsg" role="alert"></p>
+    <button class="btn btn-dark" type="submit">Enter</button>
+  </form>
+</div>
+<div id="app">
 <a class="skip" href="#atelier">Skip to the designer</a>
 
 <header class="top">
@@ -182,7 +202,9 @@
     <p class="foot-note">Atelier is a concept companion app built for a university project (ISM 6427, Florida Atlantic University). Designs are illustrations, not quotes.</p>
   </div>
 </footer>
+</div>
 
+<script src="gate.js"></script>
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>
