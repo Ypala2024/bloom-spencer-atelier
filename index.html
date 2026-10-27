@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier — Bloom &amp; Spencer</title>
+<meta name="description" content="Design your bespoke Bloom & Spencer piece, discover your stone, and book a private consultation.">
+<link rel="icon" href="https://www.bloomandspencer.com/files1/images/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#atelier">Skip to the designer</a>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="logo" href="#top" aria-label="Bloom & Spencer Atelier, home">
+      <img src="https://www.bloomandspencer.com/files1/images/logo.svg" alt="Bloom &amp; Spencer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'BLOOM & SPENCER'}))">
+      <span class="logo-sub">Atelier</span>
+    </a>
+    <nav aria-label="Main" class="nav">
+      <a href="#atelier">Design</a>
+      <a href="#stones">Stones</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#saved">My designs <span class="count" id="savedCount" aria-label="saved designs">0</span></a>
+      <a class="btn btn-dark btn-sm" href="#book">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-img" role="img" aria-label="Model wearing Bloom & Spencer jewellery"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">The Atelier</p>
+      <h1 id="heroTitle">Design a piece that is entirely yours.</h1>
+      <p class="lead">Choose your stone, cut and metal, see it come to life, then bring it to a private consultation with our jewellers in Begumpet.</p>
+      <div class="row">
+        <a class="btn btn-dark" href="#atelier">Begin designing</a>
+        <a class="btn" href="#quiz">Find your stone</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Designer -->
+  <section id="atelier" class="section" aria-labelledby="atelierTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">Step by step</p>
+        <h2 id="atelierTitle">The Atelier</h2>
+        <p class="muted">Every choice updates your piece instantly.</p>
+      </header>
+
+      <div class="designer">
+        <form id="designForm" class="options" aria-label="Design options" onsubmit="return false">
+          <fieldset><legend>1. Piece</legend><div class="chips" id="optPiece"></div></fieldset>
+          <fieldset><legend>2. Stone</legend><div class="chips" id="optStone"></div></fieldset>
+          <fieldset><legend>3. Cut</legend><div class="chips" id="optCut"></div></fieldset>
+          <fieldset><legend>4. Metal</legend><div class="chips" id="optMetal"></div></fieldset>
+          <fieldset>
+            <legend>5. Centre stone size</legend>
+            <div class="size-row">
+              <input type="range" id="optSize" min="0.5" max="3" step="0.25" value="1" aria-describedby="sizeOut">
+              <output id="sizeOut" for="optSize">1.00 ct</output>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="preview-col">
+          <div class="preview" aria-live="polite">
+            <svg id="previewSvg" viewBox="0 0 320 320" role="img" aria-labelledby="previewTitle">
+              <title id="previewTitle">Preview of your design</title>
+            </svg>
+            <p class="preview-name" id="designName">—</p>
+          </div>
+          <dl class="summary" id="summary"></dl>
+          <div class="row">
+            <button type="button" class="btn btn-dark" id="saveBtn">Save design</button>
+            <a class="btn" href="#book" id="bookWithDesign">Book with this design</a>
+          </div>
+          <p class="toast" id="toast" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="inspired">
+        <h3 class="h3">Inspired by the collection</h3>
+        <p class="muted" id="inspiredNote">Pieces from Bloom &amp; Spencer close to your design.</p>
+        <div class="cards" id="inspired"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stone guide -->
+  <section id="stones" class="section grey" aria-labelledby="stonesTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">Know your stone</p>
+        <h2 id="stonesTitle">The stone guide</h2>
+      </header>
+      <div class="stones" id="stoneGrid"></div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="section" aria-labelledby="quizTitle">
+    <div class="wrap narrow">
+      <header class="sec-head center">
+        <p class="eyebrow">Four questions</p>
+        <h2 id="quizTitle">Which stone is you?</h2>
+      </header>
+      <div class="quiz" id="quizBox"></div>
+    </div>
+  </section>
+
+  <!-- Saved -->
+  <section id="saved" class="section grey" aria-labelledby="savedTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">Your shortlist</p>
+        <h2 id="savedTitle">My designs</h2>
+        <p class="muted">Saved privately on this device.</p>
+      </header>
+      <div class="cards" id="savedGrid"></div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="book" class="section" aria-labelledby="bookTitle">
+    <div class="wrap book">
+      <div class="book-copy">
+        <p class="eyebrow">Private consultation</p>
+        <h2 id="bookTitle">Meet our jewellers</h2>
+        <p class="lead">Visit us in Begumpet or join by video. Your request goes straight to the atelier on WhatsApp, with your design attached.</p>
+        <address class="addr">
+          <span id="addrLines"></span>
+        </address>
+      </div>
+      <form id="bookForm" class="form" novalidate>
+        <div class="grid2">
+          <div class="field"><label for="bName">Your name *</label><input id="bName" autocomplete="name" required></div>
+          <div class="field"><label for="bPhone">Phone *</label><input id="bPhone" type="tel" autocomplete="tel" required placeholder="+91 ..."></div>
+          <div class="field"><label for="bDate">Preferred date *</label><input id="bDate" type="date" required></div>
+          <div class="field"><label for="bTime">Time *</label>
+            <select id="bTime" required>
+              <option value="">Choose a time</option>
+              <option>11:00 AM</option><option>12:30 PM</option><option>2:00 PM</option>
+              <option>3:30 PM</option><option>5:00 PM</option><option>6:30 PM</option>
+            </select>
+          </div>
+          <div class="field"><label for="bMode">Consultation</label>
+            <select id="bMode"><option>In store, Begumpet</option><option>Video call</option></select>
+          </div>
+          <div class="field"><label for="bOcc">Occasion</label>
+            <select id="bOcc"><option>Engagement</option><option>Wedding</option><option>Anniversary</option><option>Gift</option><option>For myself</option></select>
+          </div>
+          <div class="field full"><label for="bBudget">Budget range</label>
+            <select id="bBudget"><option>Prefer to discuss</option><option>Under ₹1 lakh</option><option>₹1 – 3 lakh</option><option>₹3 – 7 lakh</option><option>₹7 lakh +</option></select>
+          </div>
+          <div class="field full"><label for="bNotes">Anything we should know?</label><textarea id="bNotes" rows="3" placeholder="Ring size, inspiration, dates…"></textarea></div>
+        </div>
+        <label class="check"><input type="checkbox" id="bAttach" checked> Attach my current design</label>
+        <p class="attach" id="attachPreview"></p>
+        <p class="notice" id="bookNotice" role="alert"></p>
+        <div class="row">
+          <button class="btn btn-dark" type="submit">Request on WhatsApp</button>
+          <button class="btn" type="button" id="emailBtn">Send by email instead</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p class="foot-logo">BLOOM &amp; SPENCER</p>
+    <p id="footAddr"></p>
+    <p class="foot-contact"><a id="footPhone" href="#"></a><span aria-hidden="true">·</span><a id="footEmail" href="#"></a></p>
+    <p class="foot-contact"><a id="footIg" href="#">Instagram</a><span aria-hidden="true">·</span><a id="footSite" href="#">Visit bloomandspencer.com</a></p>
+    <p class="foot-note">Atelier is a concept companion app built for a university project (ISM 6427, Florida Atlantic University). Designs are illustrations, not quotes.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
