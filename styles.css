@@ -176,3 +176,11 @@ html.unlocked .gate { display: none; }
 .gate-box .field { text-align: left; }
 .gate-logo { height: 44px; width: auto; margin: 0 auto 8px; }
 .gate-title { font-size: 40px; }
+
+/* Stone sparkle */
+.tw { transform-box: fill-box; transform-origin: center; animation: twinkle 3.2s ease-in-out infinite; }
+@keyframes twinkle { 0%, 70%, 100% { opacity: 0; transform: scale(.4) rotate(0deg); } 80% { opacity: .95; transform: scale(1) rotate(20deg); } 90% { opacity: .2; transform: scale(.6) rotate(35deg); } }
+@media (prefers-reduced-motion: reduce) { .tw { animation: none; opacity: .6; } }
+.preview { padding: 0; background: #ececec; }
+.preview svg { max-width: 420px; }
+.preview-name { padding: 0 16px 16px; }
