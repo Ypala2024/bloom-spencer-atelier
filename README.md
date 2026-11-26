@@ -10,3 +10,8 @@ Built for ISM 6427 (FAU) using a team of Claude Code sub-agents — see `.claude
 - `.claude/agents/` — orchestrator, architect, meta-agent, brand-designer, gem-expert, frontend-engineer, booking-integrator, qa-tester
 
 Deploy: Netlify → import this repo → publish directory `.`.
+
+---
+
+## Advisory Board (Agents assignment)
+The [`advisory-board/`](advisory-board/) folder holds a separate Claude Code project: **11 synthetic-employee agents** (board chair, gemologist, bridal consultant, master jeweller, market analyst, brand strategist, digital marketer, CFO, sourcing, compliance, devil's advocate) that advise Bloom & Spencer on decisions and client enquiries. It uses the `bloom-spencer-bespoke-brief` skill and includes sample board sessions. Start with [`advisory-board/README.md`](advisory-board/README.md).

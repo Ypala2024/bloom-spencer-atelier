@@ -1,2 +1,9 @@
 [build]
   publish = "."
+
+# advisory-board/ is a Claude Code agent project, not part of the website.
+[[redirects]]
+  from = "/advisory-board/*"
+  to = "/index.html"
+  status = 404
+  force = true
